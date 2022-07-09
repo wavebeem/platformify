@@ -1,0 +1,110 @@
+:root {
+  --color-zapOrange: #ff4f00;
+  --color-earth: #201515;
+  --color-moss: #1f3121;
+  --color-night: #2b2358;
+  --color-lavender: #c1b7ff;
+  --color-cream: #fff3e6;
+  --color-peach: #ffbf6e;
+  --color-bolt: #f6ffdb;
+  --color-sky: #cde4e1;
+  --color-almostWhite: #fffdf9;
+  --color-blueJeans: #3d4592;
+
+  --bit-border-radius: 3px;
+
+  --content-width: 600px;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  overflow-y: scroll;
+}
+
+main {
+  flex: auto;
+  padding: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+p-app {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.spacer {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.platform {
+  border-bottom: 6px solid var(--color-zapOrange);
+  padding-bottom: 0.125rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.content > * {
+  margin: 0;
+}
+
+.img-container {
+  padding: var(--bit-border-width);
+  border: var(--bit-border-width) solid var(--bit-color0);
+  border-radius: var(--bit-border-radius);
+  justify-self: center;
+  align-self: center;
+}
+
+.theme-light {
+  --bit-color0: var(--color-earth);
+  --bit-color1: var(--color-almostWhite);
+}
+
+.theme-dark {
+  --bit-color0: var(--color-almostWhite);
+  --bit-color1: var(--color-earth);
+}
+
+.theme-upload {
+  --bit-color0: var(--color-earth);
+  --bit-color1: var(--color-cream);
+}
+
+.theme-save {
+  --bit-color0: var(--color-earth);
+  --bit-color1: var(--color-peach);
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="bit-auto theme-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform-ify</title>
+    <script src="/main.js" type="module"></script>
+    <link rel="stylesheet" href="/1bit-ui.css" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="content">
+      <h1>
+        <span class="platform">Platform-ify</span>
+      </h1>
+      <p>
+        Platform-ify adds a little orange platform to your image. If you know,
+        you know.
+      </p>
+
+      <div>
+        <!-- Load bearing div to prevent margin removal lol -->
+        <hr />
+      </div>
+
+      <p-app>
+        <button type="button" id="upload" class="theme-upload">
+          Select image&hellip;
+        </button>
+        <div class="img-container" hidden>
+          <canvas id="canvas" width="16" height="16"></canvas>
+        </div>
+        <button type="button" id="save" class="theme-save" hidden>
+          Save platform-ified image
+        </button>
+      </p-app>
+
+      <div class="spacer"></div>
+    </main>
+
+    <footer class="bit-root theme-dark">
+      <div class="content">
+        <p>
+          Platform-ify is not endorsed by, affiliated with, or supported by
+          Zapier, Inc
+        </p>
+        <p>
+          &copy; 2022
+          <a href="https://www.wavebeem.com"> Brian Mock </a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
