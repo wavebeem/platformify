@@ -86,6 +86,7 @@ h1 {
 }
 
 .img-container {
+  margin: 0;
   justify-self: center;
   align-self: center;
 }
