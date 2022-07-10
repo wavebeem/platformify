@@ -5,32 +5,57 @@ class HTMLPAppElement extends HTMLElement {
   ctx;
   /** @type {HTMLImageElement} */
   img;
+  /** @type {"overlay" | "below"} */
+  platformLocation = "overlay";
 
   connectedCallback() {
     this.ctx = this.canvas.getContext("2d");
-
-    this.uploadButton.onclick = async () => {
-      this.file = await this.pickImageFile();
-      this.img = await this.loadImageFromFile(this.file);
-      this.draw();
-      this.imgContainer.hidden = false;
-      this.saveButton.hidden = false;
-    };
-
-    this.saveButton.onclick = () => {
-      const url = this.canvas.toDataURL();
-      this.saveURL(url, this.file.name);
-    };
+    this.uploadButton.onclick = this.onUpload;
+    this.saveButton.onclick = this.onSave;
+    for (const locationRadio of this.locationRadios) {
+      locationRadio.onchange = this.onLocationChange;
+    }
   }
 
+  onLocationChange = (event) => {
+    if (event.target.checked) {
+      this.platformLocation = event.target.value;
+      this.draw();
+    }
+  };
+
+  onSave = () => {
+    const url = this.canvas.toDataURL();
+    this.saveURL(url, this.file.name);
+  };
+
+  onUpload = async () => {
+    this.file = await this.pickImageFile();
+    this.img = await this.loadImageFromFile(this.file);
+    this.draw();
+    this.hiddenContent.hidden = false;
+  };
+
   draw() {
-    const { ctx } = this;
+    const { ctx, platformLocation } = this;
+    const barHeight = Math.round(this.img.height / 12);
     ctx.canvas.width = this.img.width;
-    ctx.canvas.height = this.img.height;
-    ctx.drawImage(this.img, 0, 0);
-    ctx.fillStyle = "#ff4f00";
-    const barHeight = ctx.canvas.height / 12;
-    ctx.fillRect(0, ctx.canvas.height - barHeight, ctx.canvas.width, barHeight);
+    if (platformLocation === "overlay") {
+      ctx.canvas.height = this.img.height;
+      ctx.drawImage(this.img, 0, 0);
+      ctx.fillStyle = "#ff4f00";
+      ctx.fillRect(
+        0,
+        ctx.canvas.height - barHeight,
+        ctx.canvas.width,
+        barHeight
+      );
+    } else {
+      ctx.canvas.height = this.img.height + barHeight;
+      ctx.drawImage(this.img, 0, 0);
+      ctx.fillStyle = "#ff4f00";
+      ctx.fillRect(0, this.img.height, ctx.canvas.width, barHeight);
+    }
   }
 
   saveURL(url, filename) {
@@ -93,6 +118,16 @@ class HTMLPAppElement extends HTMLElement {
   /** @type {HTMLButtonElement} */
   get saveButton() {
     return this.querySelector("#save");
+  }
+
+  /** @type {HTMLDivElement} */
+  get hiddenContent() {
+    return this.querySelector("#hidden-content");
+  }
+
+  /** @type {HTMLInputElement[]} */
+  get locationRadios() {
+    return Array.from(this.querySelectorAll("[name=platform-location]"));
   }
 }
 
