@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bit-auto theme-light">
+<html lang="en" class="bit-root bit-scrollbar theme-light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,18 +21,19 @@
 
       <div>
         <!-- Load bearing div to prevent margin removal lol -->
-        <hr />
+        <hr class="bit-hr" />
       </div>
 
       <p-app class="flex-column">
-        <button type="button" id="upload" class="theme-upload">
+        <button type="button" id="upload" class="theme-upload bit-button">
           Select image&hellip;
         </button>
         <div class="flex-column" id="hidden-content" hidden>
-          <fieldset>
-            <legend>Platform location</legend>
-            <label>
+          <fieldset class="bit-fieldset">
+            <legend class="bit-legend">Platform location</legend>
+            <label class="bit-field">
               <input
+                class="bit-radio"
                 type="radio"
                 name="platform-location"
                 value="overlay"
@@ -40,8 +41,13 @@
               />
               <span>Overlay the platform on the image</span>
             </label>
-            <label>
-              <input type="radio" name="platform-location" value="below" />
+            <label class="bit-field">
+              <input
+                class="bit-radio"
+                type="radio"
+                name="platform-location"
+                value="below"
+              />
               <span>Put the platform below the image</span>
             </label>
           </fieldset>
@@ -51,7 +57,7 @@
               <canvas id="canvas" width="16" height="16"></canvas>
             </div>
           </figure>
-          <button type="button" id="save" class="theme-save">
+          <button type="button" id="save" class="theme-save bit-button">
             Save platform-ified image
           </button>
         </div>
@@ -68,7 +74,7 @@
         </p>
         <p>
           &copy; 2022
-          <a href="https://www.wavebeem.com"> Brian Mock </a>
+          <a class="bit-link" href="https://www.wavebeem.com"> Brian Mock </a>
         </p>
       </div>
     </footer>

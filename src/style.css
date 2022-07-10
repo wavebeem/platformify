@@ -27,7 +27,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: sans-serif;
-  font-size: 1.25rem;
   line-height: 1.5;
   overflow-y: scroll;
 }
@@ -109,4 +108,10 @@ h1 {
 .theme-save {
   --bit-color0: var(--color-earth);
   --bit-color1: var(--color-peach);
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 1.25rem;
+  }
 }
