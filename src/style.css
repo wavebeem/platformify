@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/Inter-var.ttf") format("woff2 supports variations"),
+    url("/Inter-var.ttf") format("woff2-variations");
+}
+
 :root {
-  --color-zapOrange: #ff4f00;
+  --color-lava: #ff4f00;
   --color-earth: #201515;
   --color-moss: #1f3121;
   --color-night: #2b2358;
@@ -8,8 +17,12 @@
   --color-peach: #ffbf6e;
   --color-bolt: #f6ffdb;
   --color-sky: #cde4e1;
-  --color-almostWhite: #fffdf9;
-  --color-blueJeans: #3d4592;
+  --color-neutral100: #fffdf9;
+  --color-neutral400: #d7d5d2;
+  --color-neutral800: #2d2e2e;
+  --color-blue: #3d4592;
+  --color-blue20: #d2d8f3;
+  --color-blue60: #90a1ed;
 
   --bit-border-radius: 3px;
 
@@ -26,7 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   overflow-y: scroll;
 }
@@ -71,7 +84,7 @@ h1 {
   content: "";
   position: relative;
   display: inline-block;
-  border-bottom: 0.4rem solid var(--color-zapOrange);
+  border-bottom: 0.4rem solid var(--color-lava);
   width: 2rem;
   margin-right: 0.125rem;
   top: 0.5rem;
@@ -96,27 +109,31 @@ h1 {
 }
 
 .theme-light {
-  --bit-color0: var(--color-earth);
-  --bit-color1: var(--color-almostWhite);
+  --bit-color-fg: var(--color-neutral800);
+  --bit-color-bg: var(--color-neutral100);
+  --bit-color-accent: var(--color-blue);
+  --bit-color-shadow: var(--color-neutral400);
 }
 
 .theme-dark {
-  --bit-color0: var(--color-almostWhite);
-  --bit-color1: var(--color-earth);
+  --bit-color-fg: var(--color-neutral100);
+  --bit-color-bg: var(--color-earth);
+  --bit-color-accent: var(--color-neutral100);
+  --bit-color-shadow: var(--color-earth);
 }
 
 .theme-upload {
-  --bit-color0: var(--color-earth);
-  --bit-color1: var(--color-cream);
+  --bit-color-fg: var(--color-neutral800);
+  --bit-color-bg: var(--color-cream);
+  --bit-color-accent: var(--color-blue);
+  --bit-color-shadow: var(--color-peach);
+  align-self: start;
 }
 
 .theme-save {
-  --bit-color0: var(--color-earth);
-  --bit-color1: var(--color-peach);
-}
-
-@media (min-width: 800px) {
-  body {
-    font-size: 1.25rem;
-  }
+  --bit-color-fg: var(--color-neutral800);
+  --bit-color-bg: var(--color-blue20);
+  --bit-color-accent: var(--color-blue);
+  --bit-color-shadow: var(--color-blue60);
+  align-self: start;
 }
